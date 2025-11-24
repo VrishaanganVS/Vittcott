@@ -24,6 +24,8 @@ DDB_TABLE = os.getenv("DDB_TABLE", "user_files")
 boto_config = Config(region_name=AWS_REGION, signature_version="s3v4")
 s3 = boto3.client("s3", region_name=AWS_REGION, config=boto_config)
 dynamodb = boto3.resource("dynamodb", region_name=AWS_REGION)
+user_table = dynamodb.Table("VittCottUsers")
+
 
 # ---- FASTAPI APP ----
 app = FastAPI()
